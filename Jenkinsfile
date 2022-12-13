@@ -13,7 +13,7 @@ pipeline {
                     sh 'git config core.autocrlf false'
                     sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
                //     sh "gradle -version"
-                //    sh "gradlew build"
+                    sh "./gradlew build -s"
                 }
                 script {
                   gradlew command: 'build'
