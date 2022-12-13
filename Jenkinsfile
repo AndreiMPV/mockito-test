@@ -9,7 +9,10 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh "gradle -version"
-                sh "git clone git@github.com:AndreiMPV/mockito-test.git"
+                withCredentials([gitUsernamePassword(credentialsId: 'docker-ssh-agent',
+                                 gitToolName: 'git-tool')]) {
+                  sh 'git clone git@github.com:AndreiMPV/mockito-test.git'
+                }
             }
         }
         stage('Build') {
