@@ -12,8 +12,11 @@ pipeline {
                                  gitToolName: 'git-tool')]) {
                     sh 'git config core.autocrlf false'
                     sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
-                    sh "gradle -version"
-                    sh "gradle build"
+               //     sh "gradle -version"
+                //    sh "gradlew build"
+                }
+                script {
+                  gradlew command: 'build'
                 }
             }
         }
