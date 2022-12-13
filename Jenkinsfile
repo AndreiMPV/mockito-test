@@ -16,9 +16,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "ll"
                 sh "gradle -version"
-                sh "cd /var/lib/jenkins/workspace/docker-agent-pipeline"
+                sh "cd var/lib/jenkins/workspace/docker-agent-pipeline@tmp"
                 sh "gradle build"
            }
         }
