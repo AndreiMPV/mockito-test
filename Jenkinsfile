@@ -37,9 +37,15 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                sh "gradle -version"
+                sh "git clone git@github.com:AndreiMPV/mockito-test.git"
+            }
+        }
         stage('Build') {
             steps {
-                script {
+                sh
                     gradle 'build'
                 }
             }
