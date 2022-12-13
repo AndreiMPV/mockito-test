@@ -2,30 +2,21 @@
 
 pipeline {
     agent {
-        docker { image 'gradle:6.9.1-jdk8' }
+        docker { image 'amazoncorretto:8u352' }
     }
 
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'git-clone-credits',
                                  gitToolName: 'git-tool')]) {
-                    sh 'git config core.autocrlf false'
                     sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
-               //     sh "gradle -version"
+                    sh 'java -version'
+                    sh 'gdale -version'
                     sh "./gradlew build -s"
-                }
-                script {
-                  gradlew command: 'build'
                 }
             }
         }
-//         stage('Build') {
-//             steps {
-//                 sh "gradle -version"
-//                 sh "gradle build"
-//            }
-//         }
     }
     post {
         always {
