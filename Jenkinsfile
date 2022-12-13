@@ -10,9 +10,9 @@ pipeline {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'git-clone-credits',
                                  gitToolName: 'git-tool')]) {
+                    sudo git config --system core.autocrlf=false
                     sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
                     sh "gradle -version"
-                   // sh "cd var/lib/jenkins/workspace/docker-agent-pipeline@tmp"
                     sh "gradle build"
                 }
             }
@@ -20,7 +20,6 @@ pipeline {
 //         stage('Build') {
 //             steps {
 //                 sh "gradle -version"
-//                 sh "cd /var/lib/jenkins/workspace/docker-agent-pipeline@tmp"
 //                 sh "gradle build"
 //            }
 //         }
