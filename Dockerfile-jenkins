@@ -3,3 +3,12 @@ FROM amazoncorretto:8u352
 RUN yum -y install git
 
 RUN echo git --version
+RUN yum -y install wget
+RUN yum -y install zip
+RUN yum -y install unzip
+
+RUN wget https://services.gradle.org/distributions/gradle-6.9.1-bin.zip -P /tmp
+RUN unzip -d /opt/gradle /tmp/gradle-6.9.1-bin.zip
+RUN ls /opt/gradle/gradle-6.9.1
+ENV GRADLE_HOME=/opt/gradle/gradle-6.9.1
+ENV PATH=${GRADLE_HOME}/bin:${PATH}
