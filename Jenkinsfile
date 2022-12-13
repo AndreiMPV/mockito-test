@@ -17,13 +17,13 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-            steps {
-                sh "gradle -version"
-                sh "cd /var/lib/jenkins/workspace/docker-agent-pipeline@tmp"
-                sh "gradle build"
-           }
-        }
+//         stage('Build') {
+//             steps {
+//                 sh "gradle -version"
+//                 sh "cd /var/lib/jenkins/workspace/docker-agent-pipeline@tmp"
+//                 sh "gradle build"
+//            }
+//         }
     }
     post {
         always {
