@@ -15,8 +15,9 @@ public class MyClassTest {
 
     @Test
     void test() {
+        System.out.println("Test runnnnnnnn");
         myClass.process();
 
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(true,"Passssssssssssss");
     }
 }
