@@ -11,7 +11,7 @@ pipeline {
                 sh "gradle -version"
                 withCredentials([gitUsernamePassword(credentialsId: 'git-clone-credits',
                                  gitToolName: 'git-tool')]) {
-                  sh 'git clone git@github.com:AndreiMPV/mockito-test.git'
+                  sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
                 }
             }
         }
