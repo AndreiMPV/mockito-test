@@ -8,19 +8,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh "gradle -version"
                 withCredentials([gitUsernamePassword(credentialsId: 'git-clone-credits',
                                  gitToolName: 'git-tool')]) {
-                  sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
+                    sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
                 }
             }
         }
         stage('Build') {
             steps {
-                script {
-                    gradle 'build'
-                }
-            }
+                sh "ll"
+                sh "gradle -version"
+                sh "cd /var/lib/jenkins/workspace/docker-agent-pipeline"
+                sh "gradle build"
+           }
         }
     }
 }
