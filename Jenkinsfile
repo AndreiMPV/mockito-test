@@ -2,7 +2,7 @@
 
 pipeline {
     agent {
-        docker { image 'amazoncorretto:8u352' }
+        docker { image 'pavlinikdoker/am-8-jenkins:latest' }
     }
 
     stages {
@@ -12,7 +12,7 @@ pipeline {
                                  gitToolName: 'git-tool')]) {
                     sh 'git clone https://github.com/AndreiMPV/mockito-test.git'
                     sh 'java -version'
-                    sh 'gdale -version'
+                    sh 'gradle -version'
                     sh "./gradlew build -s"
                 }
             }
